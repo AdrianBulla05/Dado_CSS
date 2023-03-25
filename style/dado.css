@@ -1,0 +1,207 @@
+/* Arreglos generales */
+/* En este espacio se arregla el fondo, la tipografia, y colores generales del texto y los enlaces */
+html{
+	font-family: 'Roboto', sans-serif;
+	background: #333;
+	color: #fff;
+    text-align: center;
+    font-family: monospace;
+    background-image: linear-gradient(55deg, rgba(23, 100, 104, 0.8), rgba(116, 13, 13, 0.8)), url(/assets/fondo.jpg);
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+header {
+    margin-top: 10px;
+	padding: 20px;
+    font-size: 18px;
+}
+h1{
+	font-weight: 600;
+}
+p{
+	font-weight: 300;
+}
+a {
+	color: rgb(192, 141, 141);
+}
+
+/* Arreglos Dado normal */
+/* En este espacio se arregla la dispocisión del dado y como se organizan los puntos de cada cara (1-6) */
+section {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+/* Este espacio arregla la clase "cara" de cada div*/
+.cara{
+	display: flex;
+	margin: 5px;
+	width: 100px;
+	height: 100px;
+	padding: 20px;
+	background: linear-gradient(90deg, rgba(31, 219, 209, 0.8), rgba(87, 137, 212, 0.8));
+	border-radius: 10%;
+}
+/* Con llamar esta clase arregla la primera cara del dado, el número 1, como no tiene nada que lo acompañe simplemente se centra*/
+.uno{
+	justify-content: center;
+	align-items: center;
+}
+/* Con llamar esta clase arregla la segunda cara del dado, el número 2, con el "space-between" se genera espacio entre los "hijos" de la clase*/
+.dos{
+	justify-content: space-between;
+}
+/* Como esta cara tiene un acompañante adicional se deben llamar para organizarse, con el "nth-child" se llama el "hijo" de la clase que tiene el mismo nombre, en este caso solo el numero 2 de los hijos, es decir el segundo hijo, la segunda clase*/
+.dos .punto:nth-child(2){
+	align-self: flex-end;
+}
+/* Con llamar esta clase arregla la tercera cara del dado, el número 3, con el "space-between" se genera espacio entre los "hijos" de la clase*/
+.tres{
+	justify-content: space-between;
+}
+/* Como esta cara tiene dos acompañantes adicionales se deben llamar para organizarse, con el "nth-child" se llama el "hijo" de la clase que tiene el mismo nombre, en este caso solo el numero 2 y el numero 3 de los hijos, es decir el segundo y tercer hijo, la segunda clase*/
+.tres .punto:nth-child(2){
+	align-self: center;
+}
+.tres .punto:nth-child(3){
+	align-self: flex-end;
+}
+/* Con llamar esta clase arregla la cuarta cara del dado, el número 4, con el "space-between" se genera espacio entre los "hijos" de la clase, en esta cara y la numero 6 se debe arreglar el contenido en columnas*/
+.cuatro{
+	justify-content: space-between;
+}
+/* Como se mencionó anteriormente los cuatro puntos de esta cara se deben organizar en dos columnas, para esto se utiliza el elemento flex-direction: column*/
+.cuatro .columna {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+/* Con llamar esta clase arregla la quinta cara del dado, el número 5, con el "space-between" se genera espacio entre los "hijos" de la clase, esta cara puede ser una union entre la numero 1 y la numero 4, por eso se usan las clases "centro" y "columnas"*/
+.cinco{
+	display: flex;
+	justify-content: space-between;
+}
+/* Replica de la cara 4 */
+.cinco .columna {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+/* Replica de la cara 1 , a execpcion que aquí se utiliza "align-self" para alinear el contenido al centro de las columnas*/
+.cinco .medio{
+	align-self: center;
+
+}
+/* Con llamar esta clase arregla la sexta cara del dado, el número 6, con el "space-between" se genera espacio entre los "hijos" de la clase, recordando que en cara y la numero 4 se debe arreglar el contenido en columnas*/
+.seis{
+	display: flex;
+	justify-content: space-between;
+}
+/* Como se mencionó anteriormente los seis puntos de esta cara se deben organizar en dos columnas, para esto se utiliza el elemento flex-direction: column*/
+.seis .columna{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+/* Esta clase contiene todos los puntos de cada cara, aquí se arregla el tamaño de este punto y el color*/
+.punto {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: black;
+}
+
+/* Arreglos dado2 3D */
+/* En este dado solamente se juega con el box-shadow y el tamaño como tal de la cara, dependiendo de los punto de la cara se cambian los valores para que se organicen de manera correcta, es un poco mas tedioso ya que hay que confirmar los ejes X, Y, y Z de la pantalla, los ejes X y Y son Vertical y Horizontal, respectivamente, el eje Z viene actuando como profundidad*/
+/* En esta area se hacen arreglos generales del dado, como colores, bordes, alineaciones, y animación.*/
+.contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.dado{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate 8s linear infinite;
+}
+
+.lado{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(31, 219, 209, 0.8), rgba(87, 137, 212, 0.8));
+    border: 2px solid rgb(60, 60, 76);
+    position: absolute;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+/* Se utiliza la pseudo clase :before para que los puntos, que en este caso son box-shadow se muestren en los lados del dado*/
+.lado:before{
+    content: "";
+    width: 40px;
+    height: 40px;
+    background: black;
+    border-radius: 20px;
+}
+/* Aqui s comienzan a organizar las box-shadow que harán de los puntos en cada cara del dado, se utiloza un dado real para organizaer correctamente las caras :D , en los numeros del 2 al 6 se utiliza la pseudo clase :before para que los puntos, dependiendo del numero se muestren en los lados del dado, para organizarlos correctamente se juega en este caso con proporciones de 50px, entonces dependiendo de cuantos puntos se quieren ver en cada cara se van haciendo los box-shadow separados por "," y con las proporciones que se deseen, en este caso 50px -50px o 0 para organizar cada punto, en el caso de cada clase se utiliza el translateY , X, o Z de acuerdo del movimiento que se desea que haga el dado, aquí se juega con angulos de inclinación y organización de las caras en el dado, dependiendo de si es positivo o negativo el valor la cara se inclinará hacia adentro o afuera del centro*/
+.one{
+    transform: translateZ(100px);
+}
+.two{
+    transform: translateX(-100px) rotateY(-90deg);
+}
+.two:before{
+    background: transparent;
+    box-shadow: black -50px 50px 0px 0px, black -50px -50px 0px 0px, black 50px 50px 0px 0px,  black 50px -50px 0px 0px;
+}
+.three{
+    transform: translateY(100px) rotateX(90deg);
+}
+.three:before{
+    box-shadow: black -50px -50px 0px 0px, black -50px 50px 0px 0px, black 50px -50px 0px 0px,  black 50px 50px 0px 0px;
+}
+.four{
+    transform: translateY(-100px) rotateX(90deg);
+}
+.four:before{
+    background: transparent;
+    box-shadow: black -50px -50px 0px 0px, black 50px 50px 0px 0px;
+}
+.five{
+    transform: translateX(100px) rotateY(90deg);
+}
+.five:before{
+    box-shadow: black -50px 50px 0px 0px, black 50px -50px 0px 0px;
+}
+.six{
+    transform: translateZ(-100px);
+}
+.six:before{
+    background: transparent;
+    box-shadow: black -50px -50px 0px 0px, black -50px 0px 0px 0px, black -50px 50px 0px 0px,  black 50px -50px 0px 0px,black 50px 0px 0px 0px,  black 50px 50px 0px 0px;
+}
+
+/* Por ultimo se utiliza la regla @keyframes lo que permite controlar los pasos intermedios en una secuencia de animación CSS, en este caso se arreglan los angulos de inclinación de la animación realizada, ya que se determinan los puntos de trayectoria que esta llevará de acuerdo a los ejes que se han mencionado X, Y o Z, se usan las palabras from y to para indicarde donde comienza la animación y donde terminaría.*/
+@keyframes rotate{
+    from{
+        transform: rotateY(0) rotateX(30deg) rotateZ(30deg);
+    }
+    to{
+        transform: rotateY(360deg) rotateX(30deg) rotateZ(30deg);
+    }
+}
+
+/* Arreglos footer */
+footer{
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 100px;
+}

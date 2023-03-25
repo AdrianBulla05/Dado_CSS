@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Dado con Flexbox | BIT</title>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="Un dado hecho apartir de Flexbox, css puro, no sass">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./style/dado.css">
+</head>
+<body>
+	<header>
+	<h1>Dado con Flexbox - BIT | Adrian Bulla</h1>
+	</header>
+	<section>
+		<div class="cara uno">
+			<span class="punto"></span>
+		</div>
+
+		<div class="cara dos">
+			<span class="punto"></span>
+			<span class="punto"></span>
+		</div>
+		<div class="cara tres">
+			<span class="punto"></span>
+			<span class="punto"></span>
+			<span class="punto"></span>
+		</div>
+		<div class="cara cuatro">
+			<div class="columna">
+				<span class="punto"></span>
+				<span class="punto"></span>
+			</div>
+			<div class="columna">
+				<span class="punto"></span>
+				<span class="punto"></span>
+			</div>
+		</div>
+		<div class="cara cinco">
+			<div class="columna">
+				<span class="punto"></span>
+				<span class="punto"></span>
+			</div>
+			<span class="punto medio"></span>
+			<div class="columna">
+				<span class="punto"></span>
+				<span class="punto"></span>
+			</div>
+		</div>
+		<div class="cara seis">
+			<div class="columna">
+				<span class="punto"></span>
+				<span class="punto"></span>
+				<span class="punto"></span>
+			</div>
+			<div class="columna">
+				<span class="punto"></span>
+				<span class="punto"></span>
+				<span class="punto"></span>
+			</div>
+		</div>
+	</section>
+
+    <div class="contenedor"> 
+        <div class="dado">
+
+            <div class="lado one"></div>
+            <div class="lado two"></div>
+            <div class="lado three"></div>
+            <div class="lado four"></div>
+            <div class="lado five"></div>
+            <div class="lado six"></div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>Creditos a <a href="https://davidwalsh.name/flexbox-dice">Landon Schropp</a> y <a href="https://github.com/phrnndz">Pamela Hernández
+        </a></p>
+	<p>Ejercicio como práctica para aprender y entender las propiedades básicas del layout en Flexbox</p>
+    </footer>
+</body>
+</html>
